@@ -1,0 +1,153 @@
+{
+	"info": {
+		"_postman_id": "ba001cbd-feb5-4f52-81b2-8ce6b47100aa",
+		"name": "empresas-backend - ioasys",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "http://localhost:3000/auth/sign_in",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\" : \"lucasrizel@ioasys.com.br\",\n  \"password\" : \"12345678\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/sign_in",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"sign_in"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Enterprise",
+			"item": [
+				{
+					"name": "Enterprises filter",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/enterprises?enterprise_types=1&name=Enteprise1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"enterprises"
+							],
+							"query": [
+								{
+									"key": "enterprise_types",
+									"value": "1"
+								},
+								{
+									"key": "name",
+									"value": "Enteprise1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Enterprises show",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAxLCJpYXQiOjE1NjcyMTUyNjAsImV4cCI6MTU3MDgxNTI2MH0.8HKv98uDMxdBYUvHALZn00HUbQeFsLLiQLZBNFYZl3A",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "client",
+								"value": "lucas rizel",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "uid",
+								"value": "1",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/enterprises/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"enterprises",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Enterprise index",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/enterprises/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"enterprises",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
